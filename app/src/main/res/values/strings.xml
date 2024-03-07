@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Examen-Menu-SQLite-Android-App</string>
+    <string name="login">Log in</string>
+    <string name="singup">Sing Up</string>
+    <string name="logOut">Log Out</string>
+    <string name="Clculatrice">Calculatrice</string>
+    <string name="Temperature">Temperature</string>
+    <string name="Afficher">Afficher</string>
+
 </resources>
