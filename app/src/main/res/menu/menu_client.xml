@@ -5,28 +5,37 @@
         android:id="@+id/singUp"
         android:icon="@drawable/adduser"
         android:title="@string/singup"
-        app:showAsAction="always" />
+        android:onClick="onSingUp"
+        app:showAsAction="always"
+        android:visible="true"/>
     <item
         android:id="@+id/Login"
+        android:onClick="onLogin"
         android:icon="@drawable/login"
         android:title="@string/login"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:visible="true"/>
     <item
         android:id="@+id/calcul"
+        android:onClick="onalcalcul"
         android:title="@string/Clculatrice"
         app:showAsAction="never" />
     <item
         android:id="@+id/temp"
+        android:onClick="onalcalcul"
         android:title="@string/Temperature"
         app:showAsAction="never" />
     <item
         android:id="@+id/afficher"
+        android:onClick="onAffichage"
         android:title="@string/Afficher"
         app:showAsAction="never" />
     <item
         android:id="@+id/Logout"
+        android:onClick="onLogOut"
         android:title="@string/logOut"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:visible="true"/>
 
 
 </menu>
