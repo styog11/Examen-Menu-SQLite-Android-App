@@ -1,0 +1,9 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ExamenMenuSQLiteAndroidApp" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.ExamenMenuSQLiteAndroidApp" parent="Base.Theme.ExamenMenuSQLiteAndroidApp" />
+</resources>
