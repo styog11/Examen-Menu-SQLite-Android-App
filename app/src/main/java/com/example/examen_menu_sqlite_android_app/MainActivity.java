@@ -2,6 +2,7 @@ package com.example.examen_menu_sqlite_android_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLogin(MenuItem item) {
+        startActivity(new Intent(this,Login.class));
         isLogIn = true;
         updateMenu();
     }
