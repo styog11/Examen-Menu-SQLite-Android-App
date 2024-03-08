@@ -24,9 +24,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createTableQuery = "Create Table " + TABLE_NAME + "(id integer primary key ," +
+        String createTableQuery = "Create Table " + TABLE_NAME + "(id integer primary key autoincrement," +
                 "nom text ," +
-                "email text," +
+                "email text unique," +
                 "mot_de_passe text );";
         sqLiteDatabase.execSQL(createTableQuery);
     }
@@ -40,7 +40,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public long ajouterClient(Client client) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("id", client.id);
         cv.put("nom", client.nom);
         cv.put("email", client.email);
         cv.put("mot_de_passe", client.password);

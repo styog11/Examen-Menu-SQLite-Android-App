@@ -5,7 +5,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSingUp(MenuItem item) {
-        Intent intent = new Intent(this,SingUp.class);
+        Intent intent = new Intent(this, SignUp.class);
         intent.putExtra("isLogIn",true);
         startActivity(intent);
 
@@ -49,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void onAffichage(MenuItem item) {
+        startActivity(new Intent(this,AffichageActivity.class));
 
     }
 

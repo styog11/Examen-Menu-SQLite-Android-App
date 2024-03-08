@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ExamenMenuSQLiteAndroidApp"
         tools:targetApi="31">
         <activity
-            android:name=".SingUp"
+            android:name=".SignUp"
             android:exported="false" />
         <activity
             android:name=".Connect"
