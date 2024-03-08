@@ -22,7 +22,7 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/temp"
-        android:onClick="oncalcul"
+        android:onClick="onTemp"
         android:title="@string/Temperature"
         app:showAsAction="never" />
     <item

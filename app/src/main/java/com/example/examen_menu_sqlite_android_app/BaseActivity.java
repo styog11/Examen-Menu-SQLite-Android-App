@@ -35,8 +35,14 @@ boolean isLogIn=false;
         startActivity(intent);
     }
     public void oncalcul(MenuItem item) {
-
+        Intent intent = new Intent(this, CalculatorActivity.class);
+        startActivity(intent);
     }
+    public void onTemp(MenuItem item) {
+        Intent intent = new Intent(this, TemperatureActivity.class);
+        startActivity(intent);
+    }
+
     public void onAffichage(MenuItem item) {
         startActivity(new Intent(this,AffichageActivity.class));
 
