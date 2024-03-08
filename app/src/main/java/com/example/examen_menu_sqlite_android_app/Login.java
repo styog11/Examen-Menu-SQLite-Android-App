@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
 
     }
     public void onAffichage(MenuItem item) {
-
+        startActivity(new Intent(this,AffichageActivity.class));
     }
 
     public void updateMenu(Menu menu) {

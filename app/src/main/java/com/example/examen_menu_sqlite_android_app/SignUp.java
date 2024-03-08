@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SingUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
     boolean isLogIn;
     private EditText nam;
     private EditText mail;
@@ -43,12 +43,15 @@ public class SingUp extends AppCompatActivity {
                 String password = pass.getText().toString().trim();
                 long Id = register(name,email,password);
                 if (Id != -1) {
-                    Toast.makeText(SingUp.this,"DONE!!",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(SingUp.this, Connect.class);
+                    Toast.makeText(SignUp.this,"DONE!!",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(SignUp.this, Connect.class);
                     intent.putExtra("isLogIn",true);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(SingUp.this,"Error!!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUp.this,"This email is already registered!!",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SignUp.this,Login.class));
+
+
                 }
             }
         });
@@ -70,7 +73,7 @@ public class SingUp extends AppCompatActivity {
     }
 
     public void onLogin(MenuItem item) {
-        Intent intent = new Intent(SingUp.this, Login.class);
+        Intent intent = new Intent(SignUp.this, Login.class);
         intent.putExtra("isLogIn",true);
         startActivity(intent);
     }
@@ -86,6 +89,7 @@ public class SingUp extends AppCompatActivity {
 
     }
     public void onAffichage(MenuItem item) {
+        startActivity(new Intent(this,AffichageActivity.class));
 
     }
 
