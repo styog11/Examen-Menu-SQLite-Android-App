@@ -90,37 +90,9 @@ public class SignUp extends BaseActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_client, menu);
-        updateMenu(menu);
-        return true;
-    }
 
-    public void onLogin(MenuItem item) {
-        Intent intent = new Intent(SignUp.this, Login.class);
-        intent.putExtra("isLogIn", true);
-        startActivity(intent);
-    }
 
-    public void onSingUp(MenuItem item) {
-
-    }
-
-    public void onLogOut(MenuItem item) {
-
-    }
-
-    public void oncalcul(MenuItem item) {
-
-    }
-
-    public void onAffichage(MenuItem item) {
-        startActivity(new Intent(this, AffichageActivity.class));
-
-    }
-
+@Override
     public void updateMenu(Menu menu) {
         MenuItem login = menu.findItem(R.id.Login);
         MenuItem logout = menu.findItem(R.id.Logout);

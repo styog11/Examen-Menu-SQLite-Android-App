@@ -16,11 +16,8 @@ public class Connect extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
         Intent intent = getIntent();
         isLogIn = intent.getBooleanExtra("isLogIn", false);
     }
