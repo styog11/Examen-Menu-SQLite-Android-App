@@ -39,8 +39,7 @@ public class AffichageActivity extends AppCompatActivity {
             btnSupprimer.setOnClickListener(view -> {
                 int id=checkAndGetClientId();
                 if (id!=-1) {
-                    Client clientToDelete = new Client(id, "", "", "");
-                    db.supprimerClient(clientToDelete);
+                    db.supprimerClient(id);
                     updateList();
                 }
             });

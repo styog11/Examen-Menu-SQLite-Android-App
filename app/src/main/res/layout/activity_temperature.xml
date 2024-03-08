@@ -41,14 +41,16 @@
             android:background="@drawable/bg_edittext"
             android:layout_margin="12dp"
             android:inputType="numberDecimal"/>
+
         <ImageView
+            android:id="@+id/swap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:tint="@color/Bleu"
+            android:layout_weight="1"
             android:background="@drawable/bg_edittext"
-            android:src="@drawable/baseline_swap_horiz_24"/>
+            android:src="@drawable/baseline_swap_horiz_24"
+            android:tint="@color/Bleu" />
         <EditText
             android:id="@+id/second_input"
             android:layout_weight="3"
