@@ -11,11 +11,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Login extends BaseActivity {
     boolean isLogIn;
     private EditText mail;
+    private TextView error;
     private EditText pass;
     private Button loginBtn;
 
@@ -32,26 +34,38 @@ public class Login extends BaseActivity {
         mail = findViewById(R.id.mail);
         pass = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginBtn);
+        error = findViewById(R.id.error);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mail.getText().toString().trim();
                 String password = pass.getText().toString().trim();
+                if (email.isEmpty() || !isValidEmail(email)) {
+                    error.setVisibility(View.VISIBLE);
+                    error.setText("The adress mail is invalid");
+                    return;
+                }
 
                 boolean clientisExistet = trouverClient(email, password);
 
                 if (clientisExistet) {
+                    error.setVisibility(View.GONE);
                     Intent intent = new Intent(Login.this, Connect.class);
                     intent.putExtra("isLogIn",true);
                     startActivity(intent);
                       } else {
-                    Toast.makeText(Login.this,"User not Founded :) ",Toast.LENGTH_LONG).show();
+                    error.setVisibility(View.VISIBLE);
+                    error.setText("*Email or Password is incorrect");
+                    //Toast.makeText(Login.this,"User not Founded :) ",Toast.LENGTH_LONG).show();
                 }
 
             }
         });
 
+    }
+    private boolean isValidEmail(String email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
     private boolean trouverClient(String email, String password) {
         DataBaseHelper dbHelper = new DataBaseHelper(this);

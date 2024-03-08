@@ -12,5 +12,6 @@
     <string name="name">Name</string>
     <string name="inscript">register</string>
     <string name="welcome">Welcome</string>
+    <string name="error">*Email or Password is incorrect</string>
 
 </resources>

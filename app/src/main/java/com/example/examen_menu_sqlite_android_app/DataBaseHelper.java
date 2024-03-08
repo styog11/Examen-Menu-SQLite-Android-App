@@ -43,7 +43,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("nom", client.nom);
         cv.put("email", client.email);
         cv.put("mot_de_passe", client.password);
-        long resultat= db.insert(TABLE_NAME, null, cv);
+        long resultat = db.insert(TABLE_NAME, null, cv);
         db.close();
         return resultat;
     }
@@ -55,7 +55,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         ArrayList<Client> clients = new ArrayList();
         if (cursor.moveToFirst()) {
             do {
-                clients.add(new Client(cursor.getInt(cursor.getColumnIndex("id")),cursor.getString(cursor.getColumnIndex("nom")), cursor.getString(cursor.getColumnIndex("email")), cursor.getString(cursor.getColumnIndex("mot_de_passe"))));
+                clients.add(new Client(cursor.getInt(cursor.getColumnIndex("id")), cursor.getString(cursor.getColumnIndex("nom")), cursor.getString(cursor.getColumnIndex("email")), cursor.getString(cursor.getColumnIndex("mot_de_passe"))));
             } while (cursor.moveToNext());
         }
         return clients;
@@ -67,14 +67,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("nom", client.nom);
         cv.put("email", client.email);
         cv.put("mot_de_passe", client.password);
-        int resultat= db.update(TABLE_NAME,  cv,"id=?", new String[]{String.valueOf(client.id)});
+        int resultat = db.update(TABLE_NAME, cv, "id=?", new String[]{String.valueOf(client.id)});
         db.close();
         return resultat;
     }
 
     public int supprimerClient(Client client) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int resultat= db.delete(TABLE_NAME, "id=?", new String[]{String.valueOf(client.id)});
+        int resultat = db.delete(TABLE_NAME, "id=?", new String[]{String.valueOf(client.id)});
         db.close();
         return resultat;
     }
@@ -93,5 +93,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return count > 0;
     }
 
-
+    public boolean isEmailRegistered(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"id"};
+        String selection = "email = ?";
+        String[] selectionArgs = {email};
+        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs,
+                null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+        return count > 0;
+    }
 }

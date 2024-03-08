@@ -4,44 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".SignUp"
+    android:background="@color/Antiquewhite"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        android:background="@color/Antiquewhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title=" " />
 
-    <EditText
-        android:id="@+id/name"
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/placeholder" />
+
+    <TextView
+        android:id="@+id/sing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="16dp"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="95dp"
+        android:fontFamily="@font/bekind"
+        android:gravity="center"
+        android:text="@string/singup"
+        android:textColor="@color/Antiquewhite"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/name"
+        style="@style/edit"
+        android:layout_below="@id/sing"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="16dp"
         android:hint="@string/name" />
 
     <EditText
         android:id="@+id/mail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/edit1"
         android:layout_below="@id/name"
-        android:layout_marginStart="23dp"
-        android:inputType="textEmailAddress"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:hint="@string/Email" />
+        android:hint="@string/Email"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/edit1"
         android:layout_below="@id/mail"
         android:layout_margin="16dp"
         android:hint="@string/Password"
         android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_marginLeft="30dp"
+        android:text=" "
+        android:textColor="@color/Red"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/inscriptBtn"
@@ -50,6 +78,7 @@
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="@string/inscript" />
+        android:text="@string/inscript"
+        android:textColor="@color/Bleu" />
 
 </RelativeLayout>

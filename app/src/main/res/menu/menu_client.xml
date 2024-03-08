@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/singUp"
-        android:icon="@drawable/adduser"
+        android:icon="@drawable/singuup"
         android:title="@string/singup"
         android:onClick="onSingUp"
         app:showAsAction="always"

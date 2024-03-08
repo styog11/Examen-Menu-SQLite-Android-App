@@ -2,8 +2,24 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ExamenMenuSQLiteAndroidApp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/Antiquewhite</item>
     </style>
 
     <style name="Theme.ExamenMenuSQLiteAndroidApp" parent="Base.Theme.ExamenMenuSQLiteAndroidApp" />
+    <style name="edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_marginStart">23dp</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:layout_below">@id/log</item>
+        <item name="android:layout_marginTop">190dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">@drawable/bg_edittext</item>
+    </style>
+    <style name="edit1" parent="edit">
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
 </resources>
