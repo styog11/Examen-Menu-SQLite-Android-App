@@ -56,7 +56,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         ArrayList<Client> clients = new ArrayList();
         if (cursor.moveToFirst()) {
             do {
-                clients.add(new Client(cursor.getInt(cursor.getColumnIndex("id")), cursor.getString(cursor.getColumnIndex("nom")), cursor.getString(cursor.getColumnIndex("email")), cursor.getString(cursor.getColumnIndex("mot_de_passe"))));
+                clients.add(new Client(cursor.getString(cursor.getColumnIndex("nom")), cursor.getString(cursor.getColumnIndex("email")), cursor.getString(cursor.getColumnIndex("mot_de_passe"))));
             } while (cursor.moveToNext());
         }
         return clients;

@@ -1,15 +1,17 @@
 package com.example.examen_menu_sqlite_android_app;
 
 public class Client {
+    static int count=0;
     int id;
     String nom;
     String email;
     String password ;
-     public Client(int id,String nom,String email , String password){
-         this.id=id;
+     public Client(String nom,String email , String password){
+
          this.nom=nom;
          this.email=email;
          this.password=password;
+         this.id = ++count;
      }
 
     @Override

@@ -45,6 +45,12 @@ public class SingUp extends AppCompatActivity {
         });
     }
 
+
+    private long register(String name, String email, String password) {
+        DataBaseHelper dbHelper = new DataBaseHelper(this);
+        Client client = new Client(name,email,password);
+        return dbHelper.ajouterClient(client);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
