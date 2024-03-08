@@ -35,6 +35,26 @@
         android:columnCount="4"
         android:layout_gravity="center">
         <Button
+            android:id="@+id/parenthes1"
+            android:text="("
+            style="@style/calculeBtn"
+            android:background="@drawable/ihm4btn"/>
+        <Button
+            android:id="@+id/parenthese2"
+            android:text=")"
+            style="@style/calculeBtn"
+            android:background="@drawable/ihm4btn"/>
+        <Button
+            android:id="@+id/ac"
+            android:text="AC"
+            style="@style/calculeBtn"
+            android:background="@drawable/ihm4btn"/>
+        <Button
+            android:id="@+id/plus"
+            android:text="+"
+            style="@style/calculeBtn"
+            android:background="@drawable/ihm4btn"/>
+        <Button
             android:id="@+id/nm7"
             android:text="7"
             style="@style/calculeBtn"
@@ -70,8 +90,8 @@
             style="@style/calculeBtn"
             android:background="@drawable/ihm4btn"/>
         <Button
-            android:id="@+id/plus"
-            android:text="+"
+            android:id="@+id/division"
+            android:text="/"
             style="@style/calculeBtn"
             android:background="@drawable/ihm4btn"/>
         <Button
@@ -95,26 +115,28 @@
             style="@style/calculeBtn"
             android:background="@drawable/ihm4btn"/>
 
+
+
+
         <Button
             android:id="@+id/nm0"
             android:text="0"
             style="@style/calculeBtn"
             android:background="@drawable/ihm4btn"/>
         <Button
-            android:id="@+id/ac"
-            android:text="AC"
+            android:id="@+id/point"
+            android:text="."
             style="@style/calculeBtn"
             android:background="@drawable/ihm4btn"/>
-        <Button
-            android:id="@+id/division"
-            android:text="/"
-            style="@style/calculeBtn"
-            android:background="@drawable/ihm4btn"/>
+
         <Button
             android:id="@+id/mult"
             android:text="="
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
             style="@style/calculeBtn"
             android:background="@drawable/ihm4btn"/>
+
 
     </GridLayout>
 </LinearLayout>

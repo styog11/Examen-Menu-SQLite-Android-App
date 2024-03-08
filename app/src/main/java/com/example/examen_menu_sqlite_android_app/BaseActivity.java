@@ -45,7 +45,8 @@ boolean isLogIn=false;
 
     public void onAffichage(MenuItem item) {
         startActivity(new Intent(this,AffichageActivity.class));
-
+        Intent intent = new Intent(this,CalculatorActivity.class);
+        startActivity(intent);
     }
 
     public void updateMenu(Menu menu) {
