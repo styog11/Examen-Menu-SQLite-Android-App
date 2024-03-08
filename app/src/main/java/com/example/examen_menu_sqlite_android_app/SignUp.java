@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUp extends BaseActivity {
@@ -19,6 +20,7 @@ public class SignUp extends BaseActivity {
     private EditText mail;
     private EditText pass;
     private Button registerBtn;
+    private TextView sing;
     private int id ;
 
     @Override
@@ -31,13 +33,16 @@ public class SignUp extends BaseActivity {
 
         Intent intent = getIntent();
         isLogIn = intent.getBooleanExtra("isLogIn", false);
+
         mail = findViewById(R.id.mail);
         nam = findViewById(R.id.name);
+        sing = findViewById(R.id.sing);
         pass = findViewById(R.id.password);
         registerBtn = findViewById(R.id.inscriptBtn);
         id=getIntent().getIntExtra("id",-1);
         if (id!=-1){
             registerBtn.setText("Modifier");
+            sing.setText("Modifier");
             nam.setText(getIntent().getStringExtra("nom"));
             mail.setText(getIntent().getStringExtra("email"));
             pass.setText(getIntent().getStringExtra("password"));
