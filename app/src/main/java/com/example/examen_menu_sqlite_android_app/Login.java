@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Login extends AppCompatActivity {
+public class Login extends BaseActivity {
     boolean isLogIn;
     private EditText mail;
     private EditText pass;
@@ -58,30 +58,6 @@ public class Login extends AppCompatActivity {
         return dbHelper.chercherClient(email, password);
     }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_client, menu);
-        updateMenu(menu);
-        return true;
-    }
-
-    public void onLogin(MenuItem item) {
-    }
-
-    public void onSingUp(MenuItem item) {
-
-    }
-
-    public void onLogOut(MenuItem item) {
-
-    }
-    public void oncalcul(MenuItem item) {
-
-    }
-    public void onAffichage(MenuItem item) {
-        startActivity(new Intent(this,AffichageActivity.class));
-    }
-
     public void updateMenu(Menu menu) {
         MenuItem login = menu.findItem(R.id.Login);
         MenuItem logout = menu.findItem(R.id.Logout);

@@ -11,5 +11,6 @@
     <string name="Connect">Connect</string>
     <string name="name">Name</string>
     <string name="inscript">register</string>
+    <string name="welcome">Welcome</string>
 
 </resources>

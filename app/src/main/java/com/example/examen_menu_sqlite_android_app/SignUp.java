@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends BaseActivity {
     boolean isLogIn;
     private EditText nam;
     private EditText mail;

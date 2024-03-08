@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class Connect extends AppCompatActivity {
+public class Connect extends BaseActivity {
     boolean isLogIn = true;
 
     @Override
@@ -25,34 +25,8 @@ public class Connect extends AppCompatActivity {
         isLogIn = intent.getBooleanExtra("isLogIn", false);
     }
 
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_client, menu);
-        updateMenu(menu);
-        return true;
-    }
-
-    public void onLogin(MenuItem item) {
-    }
-
-    public void onSingUp(MenuItem item) {
-        isLogIn = true;
-    }
-
-    public void onLogOut(MenuItem item) {
-        Intent intent = new Intent(Connect.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void oncalcul(MenuItem item) {
-
-    }
-
-    public void onAffichage(MenuItem item) {
-        startActivity(new Intent(this,AffichageActivity.class));
-    }
-
     public void updateMenu(Menu menu) {
         MenuItem login = menu.findItem(R.id.Login);
         MenuItem logout = menu.findItem(R.id.Logout);
