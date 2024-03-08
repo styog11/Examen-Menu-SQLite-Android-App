@@ -80,4 +80,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return resultat;
     }
 
+
+    public boolean chercherClient(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"id"};
+        String selection = "email = ? AND mot_de_passe = ?";
+        String[] selectionArgs = {email, password};
+        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs,
+                null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+        return count > 0;
+    }
+
+
 }

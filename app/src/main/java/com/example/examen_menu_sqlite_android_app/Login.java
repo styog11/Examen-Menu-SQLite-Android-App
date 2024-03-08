@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     boolean isLogIn;
@@ -35,14 +36,26 @@ public class Login extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = mail.getText().toString().trim();
+                String email = mail.getText().toString().trim();
                 String password = pass.getText().toString().trim();
-                Intent intent = new Intent(Login.this, Connect.class);
-                intent.putExtra("isLogIn",true);
-                startActivity(intent);
+
+                boolean clientisExistet = trouverClient(email, password);
+
+                if (clientisExistet) {
+                    Intent intent = new Intent(Login.this, Connect.class);
+                    intent.putExtra("isLogIn",true);
+                    startActivity(intent);
+                      } else {
+                    Toast.makeText(Login.this,"User not Founded :) ",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
+    }
+    private boolean trouverClient(String email, String password) {
+        DataBaseHelper dbHelper = new DataBaseHelper(this);
+        return dbHelper.chercherClient(email, password);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -11,10 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SingUp extends AppCompatActivity {
     boolean isLogIn;
-    private EditText name;
+    private EditText nam;
     private EditText mail;
     private EditText pass;
     private Button registerBtn;
@@ -30,17 +31,25 @@ public class SingUp extends AppCompatActivity {
         isLogIn = intent.getBooleanExtra("isLogIn", false);
 
         mail = findViewById(R.id.mail);
+        nam = findViewById(R.id.name);
         pass = findViewById(R.id.password);
         registerBtn = findViewById(R.id.inscriptBtn);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = mail.getText().toString().trim();
+                String email = mail.getText().toString().trim();
+                String name = nam.getText().toString().trim();
                 String password = pass.getText().toString().trim();
-                Intent intent = new Intent(SingUp.this, Connect.class);
-                intent.putExtra("isLogIn",true);
-                startActivity(intent);
+                long Id = register(name,email,password);
+                if (Id != -1) {
+                    Toast.makeText(SingUp.this,"DONE!!",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(SingUp.this, Connect.class);
+                    intent.putExtra("isLogIn",true);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(SingUp.this,"Error!!",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -50,6 +59,7 @@ public class SingUp extends AppCompatActivity {
         DataBaseHelper dbHelper = new DataBaseHelper(this);
         Client client = new Client(name,email,password);
         return dbHelper.ajouterClient(client);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,6 +70,9 @@ public class SingUp extends AppCompatActivity {
     }
 
     public void onLogin(MenuItem item) {
+        Intent intent = new Intent(SingUp.this, Login.class);
+        intent.putExtra("isLogIn",true);
+        startActivity(intent);
     }
 
     public void onSingUp(MenuItem item) {
