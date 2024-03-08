@@ -21,6 +21,7 @@ public class SignUp extends BaseActivity {
     private EditText pass;
     private TextView error;
     private Button registerBtn;
+    private int id ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class SignUp extends BaseActivity {
         nam = findViewById(R.id.name);
         pass = findViewById(R.id.password);
         registerBtn = findViewById(R.id.inscriptBtn);
-        error = findViewById(R.id.error);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,28 +45,14 @@ public class SignUp extends BaseActivity {
                 String email = mail.getText().toString().trim();
                 String name = nam.getText().toString().trim();
                 String password = pass.getText().toString().trim();
-
-                if (email.isEmpty() || !isValidEmail(email)) {
-                    error.setVisibility(View.VISIBLE);
-                    error.setText("The adress mail is invalid");
-                    return;
-                }
-                if (isEmailAlreadyRegistered(email)) {
-                    error.setVisibility(View.VISIBLE);
-                    error.setText("Mail already existed");
-                    return;
-                }
                 long Id = register(name, email, password);
                 if (Id != -1) {
-                    //Toast.makeText(SignUp.this, "DONE!!", Toast.LENGTH_LONG).show();
-                    error.setVisibility(View.GONE);
+                    Toast.makeText(SignUp.this, "DONE!!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SignUp.this, Connect.class);
                     intent.putExtra("isLogIn", true);
                     startActivity(intent);
                 } else {
-                    error.setVisibility(View.VISIBLE);
-                    error.setText("This email is already registered!!");
-                    //Toast.makeText(SignUp.this, "This email is already registered!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "This email is already registered!!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUp.this, Login.class));
 
 
@@ -74,13 +60,7 @@ public class SignUp extends BaseActivity {
             }
         });
     }
-    private boolean isEmailAlreadyRegistered(String email) {
-        DataBaseHelper dbHelper = new DataBaseHelper(this);
-        return dbHelper.isEmailRegistered(email);
-    }
-    private boolean isValidEmail(String email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
-    }
+
 
     private long register(String name, String email, String password) {
         DataBaseHelper dbHelper = new DataBaseHelper(this);
@@ -91,8 +71,36 @@ public class SignUp extends BaseActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_client, menu);
+        updateMenu(menu);
+        return true;
+    }
 
-@Override
+    public void onLogin(MenuItem item) {
+        Intent intent = new Intent(SignUp.this, Login.class);
+        intent.putExtra("isLogIn", true);
+        startActivity(intent);
+    }
+
+    public void onSingUp(MenuItem item) {
+
+    }
+
+    public void onLogOut(MenuItem item) {
+
+    }
+
+    public void oncalcul(MenuItem item) {
+
+    }
+
+    public void onAffichage(MenuItem item) {
+        startActivity(new Intent(this, AffichageActivity.class));
+
+    }
 
     public void updateMenu(Menu menu) {
         MenuItem login = menu.findItem(R.id.Login);
