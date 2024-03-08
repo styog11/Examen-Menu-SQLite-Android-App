@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSingUp(MenuItem item) {
-        isLogIn = true;
+        Intent intent = new Intent(this,SingUp.class);
+        intent.putExtra("isLogIn",true);
+        startActivity(intent);
+
     }
 
     public void onLogOut(MenuItem item) {
