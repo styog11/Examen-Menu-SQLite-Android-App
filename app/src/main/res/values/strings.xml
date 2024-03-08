@@ -6,5 +6,8 @@
     <string name="Clculatrice">Calculatrice</string>
     <string name="Temperature">Temperature</string>
     <string name="Afficher">Afficher</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Connect">Connect</string>
 
 </resources>
