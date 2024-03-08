@@ -72,9 +72,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return resultat;
     }
 
-    public int supprimerClient(Client client) {
+    public int supprimerClient(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int resultat = db.delete(TABLE_NAME, "id=?", new String[]{String.valueOf(client.id)});
+        int resultat = db.delete(TABLE_NAME, "id=?", new String[]{String.valueOf(id)});
         db.close();
         return resultat;
     }
@@ -93,16 +93,4 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return count > 0;
     }
 
-    public boolean isEmailRegistered(String email) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = {"id"};
-        String selection = "email = ?";
-        String[] selectionArgs = {email};
-        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs,
-                null, null, null);
-        int count = cursor.getCount();
-        cursor.close();
-        db.close();
-        return count > 0;
-    }
 }
