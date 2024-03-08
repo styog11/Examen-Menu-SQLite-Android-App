@@ -17,12 +17,12 @@
         android:visible="true"/>
     <item
         android:id="@+id/calcul"
-        android:onClick="onalcalcul"
+        android:onClick="oncalcul"
         android:title="@string/Clculatrice"
         app:showAsAction="never" />
     <item
         android:id="@+id/temp"
-        android:onClick="onalcalcul"
+        android:onClick="oncalcul"
         android:title="@string/Temperature"
         app:showAsAction="never" />
     <item
