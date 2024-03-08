@@ -20,6 +20,9 @@ public class Connect extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        Intent intent = getIntent();
+        isLogIn = intent.getBooleanExtra("isLogIn", false);
     }
 
     @Override

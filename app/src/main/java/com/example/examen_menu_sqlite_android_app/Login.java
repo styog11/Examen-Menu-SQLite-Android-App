@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Login extends AppCompatActivity {
-    boolean isLogIn=true;
+    boolean isLogIn;
     private EditText mail;
     private EditText pass;
     private Button loginBtn;
@@ -25,6 +25,9 @@ public class Login extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        isLogIn = intent.getBooleanExtra("isLogIn", false);
+
         mail = findViewById(R.id.mail);
         pass = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginBtn);
@@ -35,6 +38,7 @@ public class Login extends AppCompatActivity {
                 String username = mail.getText().toString().trim();
                 String password = pass.getText().toString().trim();
                 Intent intent = new Intent(Login.this, Connect.class);
+                intent.putExtra("isLogIn",true);
                 startActivity(intent);
             }
         });
@@ -52,7 +56,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void onSingUp(MenuItem item) {
-        isLogIn = true;
+
     }
 
     public void onLogOut(MenuItem item) {
@@ -69,7 +73,7 @@ public class Login extends AppCompatActivity {
         MenuItem login = menu.findItem(R.id.Login);
         MenuItem logout = menu.findItem(R.id.Logout);
         login.setVisible(!isLogIn);
-        logout.setVisible(false);
+        logout.setVisible(!isLogIn);
     }
 
 }

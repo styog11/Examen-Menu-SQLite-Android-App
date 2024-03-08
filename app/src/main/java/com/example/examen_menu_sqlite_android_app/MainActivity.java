@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLogin(MenuItem item) {
-        startActivity(new Intent(this,Login.class));
-        isLogIn = true;
+        Intent intent = new Intent(this,Login.class);
+        intent.putExtra("isLogIn",true);
+        startActivity(intent);
     }
 
     public void onSingUp(MenuItem item) {
@@ -40,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLogOut(MenuItem item) {
-        isLogIn = false;
     }
     public void oncalcul(MenuItem item) {
 
