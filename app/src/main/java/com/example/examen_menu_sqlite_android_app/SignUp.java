@@ -38,6 +38,9 @@ public class SignUp extends BaseActivity {
         id=getIntent().getIntExtra("id",-1);
         if (id!=-1){
             registerBtn.setText("Modifier");
+            nam.setText(getIntent().getStringExtra("nom"));
+            mail.setText(getIntent().getStringExtra("email"));
+            pass.setText(getIntent().getStringExtra("password"));
         }
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override

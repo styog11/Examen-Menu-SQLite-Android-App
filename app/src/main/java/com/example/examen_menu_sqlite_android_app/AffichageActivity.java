@@ -16,6 +16,7 @@ public class AffichageActivity extends AppCompatActivity {
     ArrayList<Integer> allClientsIds= new ArrayList() ;
     DataBaseHelper db;
     ListView theList;
+    List<Client> clients;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class AffichageActivity extends AppCompatActivity {
             setContentView(R.layout.activity_affichage);
             db = new DataBaseHelper(this);
             theList = findViewById(R.id.the_list);
-            List<Client> clients=db.getAllClients();
+            clients=db.getAllClients();
             for (Client client : clients){
                     allClientsIds.add(client.id);
 
@@ -45,16 +46,21 @@ public class AffichageActivity extends AppCompatActivity {
             btnModifier.setOnClickListener(view -> {
                 int id=checkAndGetClientId();
                 if (id!=-1) {
+                    Client client = getClientById(id);
                     Intent intent = new Intent(AffichageActivity.this, SignUp.class);
                     intent.putExtra("id", id);
+                    intent.putExtra("nom", client.nom);
+                    intent.putExtra("email", client.email);
+                    intent.putExtra("password", client.password);
                     startActivity(intent);
                 }
+
             });
             theList.setAdapter(ad);
     }
 
     private void updateList() {
-        List<Client> clients=db.getAllClients();
+        clients=db.getAllClients();
         allClientsIds.clear();
         for (Client client : clients){
             allClientsIds.add(client.id);
@@ -76,5 +82,8 @@ public class AffichageActivity extends AppCompatActivity {
             idTextField.setError("l'id est obligatoire pour cette action");
         }
         return -1;
+    }
+    private Client getClientById(int id){
+        return clients.get(allClientsIds.indexOf(id));
     }
 }

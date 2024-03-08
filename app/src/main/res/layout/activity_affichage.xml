@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@color/Bleu"
     android:padding="20dp"
     tools:context=".AffichageActivity">
     <androidx.appcompat.widget.Toolbar
@@ -21,19 +22,22 @@
         android:layout_gravity="center"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:fontFamily="@font/dancingscript_medium"/>
+        android:textColor="@color/whiteBleu"
+        android:fontFamily="@font/bekind"/>
 
         <ListView
             android:layout_marginTop="20dp"
             android:id="@+id/the_list"
             android:layout_width="wrap_content"
+            android:background="@color/white"
             android:layout_height="0dp"
             android:layout_weight="1"/>
     <EditText
         android:id="@+id/client_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Taper l'id de Client pour modifier ou supprimer"
+        android:background="@color/white"
+        android:hint="Taper l'id de Client"
         android:inputType="number"/>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -43,16 +47,19 @@
             android:id="@+id/btn_ajouter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ajouter"/>
+            android:text="Ajouter"
+            android:textColor="@color/Bleu"/>
         <Button
             android:id="@+id/btn_modifier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Modifier"/>
+            android:text="Modifier"
+            android:textColor="@color/Bleu"/>
         <Button
             android:id="@+id/btn_supprimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Supprimer"/>
+            android:text="Supprimer"
+            android:textColor="@color/Bleu"/>
     </LinearLayout>
 </LinearLayout>
