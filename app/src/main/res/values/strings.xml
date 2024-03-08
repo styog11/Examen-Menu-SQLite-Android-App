@@ -9,5 +9,7 @@
     <string name="Email">Email</string>
     <string name="Password">Password</string>
     <string name="Connect">Connect</string>
+    <string name="name">Name</string>
+    <string name="inscript">register</string>
 
 </resources>
