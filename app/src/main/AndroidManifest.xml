@@ -19,6 +19,9 @@
             android:name=".Connect"
             android:exported="false" />
         <activity
+            android:name=".AffichageActivity"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
